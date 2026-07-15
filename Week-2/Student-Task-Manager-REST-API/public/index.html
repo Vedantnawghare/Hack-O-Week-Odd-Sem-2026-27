@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ved Presents | Student Task Manager</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark">
+    <!-- App Container -->
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="main-header">
+            <div class="brand">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Ved Presents</h1>
+                    <span>Student Task Manager</span>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <div class="date-time" id="live-clock">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="clock-time">00:00:00</span>
+                </div>
+                <button id="theme-toggle" class="btn-icon" title="Toggle Dark/Light Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <button id="btn-add-task" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i> Add New Task
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Section -->
+        <section class="stats-container">
+            <!-- Stat Card: Total -->
+            <div class="stat-card glass" id="stat-total">
+                <div class="stat-icon bg-blue">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <div class="stat-details">
+                    <span class="stat-label">Total Tasks</span>
+                    <h3 class="stat-value" id="val-total-tasks">0</h3>
+                </div>
+            </div>
+
+            <!-- Stat Card: Pending -->
+            <div class="stat-card glass" id="stat-pending">
+                <div class="stat-icon bg-yellow">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+                <div class="stat-details">
+                    <span class="stat-label">Active Tasks</span>
+                    <h3 class="stat-value" id="val-active-tasks">0</h3>
+                </div>
+            </div>
+
+            <!-- Stat Card: Overdue -->
+            <div class="stat-card glass alert-danger" id="stat-overdue">
+                <div class="stat-icon bg-red">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="stat-details">
+                    <span class="stat-label">Overdue Tasks</span>
+                    <h3 class="stat-value text-red" id="val-overdue-tasks">0</h3>
+                </div>
+            </div>
+
+            <!-- Stat Card: Progress -->
+            <div class="stat-card glass progress-card" id="stat-progress">
+                <div class="stat-details">
+                    <span class="stat-label">Completion Rate</span>
+                    <h3 class="stat-value" id="val-completion-rate">0%</h3>
+                </div>
+                <div class="progress-ring-container">
+                    <svg class="progress-ring" width="60" height="60">
+                        <circle class="progress-ring__background" stroke-width="6" fill="transparent" r="24" cx="30" cy="30" />
+                        <circle class="progress-ring__circle" stroke-width="6" fill="transparent" r="24" cx="30" cy="30" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <!-- Sidebar: Controls & Filters -->
+            <aside class="sidebar glass">
+                <div class="sidebar-section">
+                    <h4>Search</h4>
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="search-input" placeholder="Search tasks, subjects...">
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>Filter by Status</h4>
+                    <div class="filter-options">
+                        <label class="filter-checkbox-container">
+                            <input type="checkbox" name="status-filter" value="All" checked id="filter-status-all">
+                            <span class="checkbox-custom"></span>
+                            All Statuses
+                        </label>
+                        <label class="filter-checkbox-container">
+                            <input type="checkbox" name="status-filter" value="Pending">
+                            <span class="checkbox-custom"></span>
+                            Pending
+                        </label>
+                        <label class="filter-checkbox-container">
+                            <input type="checkbox" name="status-filter" value="In Progress">
+                            <span class="checkbox-custom"></span>
+                            In Progress
+                        </label>
+                        <label class="filter-checkbox-container">
+                            <input type="checkbox" name="status-filter" value="Completed">
+                            <span class="checkbox-custom"></span>
+                            Completed
+                        </label>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>Filter by Priority</h4>
+                    <div class="filter-options">
+                        <label class="filter-radio-container">
+                            <input type="radio" name="priority-filter" value="All" checked>
+                            <span class="radio-custom"></span>
+                            All Priorities
+                        </label>
+                        <label class="filter-radio-container">
+                            <input type="radio" name="priority-filter" value="High">
+                            <span class="radio-custom"></span>
+                            High Priority
+                        </label>
+                        <label class="filter-radio-container">
+                            <input type="radio" name="priority-filter" value="Medium">
+                            <span class="radio-custom"></span>
+                            Medium Priority
+                        </label>
+                        <label class="filter-radio-container">
+                            <input type="radio" name="priority-filter" value="Low">
+                            <span class="radio-custom"></span>
+                            Low Priority
+                        </label>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>Subjects</h4>
+                    <div class="subject-tags" id="subject-tags-list">
+                        <!-- Dynamic Subject Tags -->
+                        <span class="subject-tag active" data-subject="All">All</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section action-section">
+                    <button id="btn-clear-completed" class="btn btn-secondary btn-full">
+                        <i class="fa-solid fa-trash-sweep"></i> Clear Completed Tasks
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Task List View -->
+            <section class="task-section">
+                <div class="task-section-header">
+                    <div class="results-counter">
+                        Showing <span id="displayed-count">0</span> tasks
+                    </div>
+                    <div class="sort-selector">
+                        <label for="sort-select">Sort by:</label>
+                        <select id="sort-select" class="glass-select">
+                            <option value="deadline-asc">Deadline (Soonest)</option>
+                            <option value="deadline-desc">Deadline (Latest)</option>
+                            <option value="priority-desc">Priority (High to Low)</option>
+                            <option value="title-asc">Title (A to Z)</option>
+                            <option value="created_at-desc">Created Date (Newest)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state hidden" id="task-empty-state">
+                    <div class="empty-state-icon">
+                        <i class="fa-regular fa-clipboard"></i>
+                    </div>
+                    <h3>No tasks found</h3>
+                    <p>Try resetting filters or create a new task to get started!</p>
+                </div>
+
+                <!-- Task Cards Grid -->
+                <div class="task-list" id="task-list-container">
+                    <!-- Dynamic Task Cards -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add/Edit Task Modal -->
+    <div class="modal-overlay hidden" id="task-modal">
+        <div class="modal-container glass">
+            <div class="modal-header">
+                <h3 id="modal-title">Add New Task</h3>
+                <button id="btn-close-modal" class="btn-icon">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form id="task-form" novalidate>
+                <input type="hidden" id="task-id">
+                
+                <div class="form-group">
+                    <label for="form-title">Task Title *</label>
+                    <input type="text" id="form-title" placeholder="e.g., Complete Mathematics Assignment" required>
+                    <span class="error-msg" id="err-title">Title is required.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-description">Description</label>
+                    <textarea id="form-description" rows="3" placeholder="Describe the task instructions, details, or resources..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="form-subject">Subject</label>
+                        <input type="text" id="form-subject" placeholder="e.g., Mathematics, DBMS">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-deadline">Deadline *</label>
+                        <input type="date" id="form-deadline" required>
+                        <span class="error-msg" id="err-deadline">Please select a valid deadline.</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="form-priority">Priority</label>
+                        <select id="form-priority">
+                            <option value="High">High</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-status">Status</label>
+                        <select id="form-status">
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="btn-cancel-modal" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" id="btn-submit-modal" class="btn btn-primary">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <i class="toast-icon fa-solid fa-circle-check"></i>
+        <span class="toast-message">Task updated successfully!</span>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>
