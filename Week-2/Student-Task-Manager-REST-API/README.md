@@ -1,24 +1,24 @@
 # 📅 Hack-O-Week (Odd Semester 2026-27)
 
-## Week 1 - Student Task Manager REST API
+## Week 2 - Student Task Manager with Responsive UI
 
 ### 📌 Project Overview
 
 This project is developed as part of the **Hack-O-Week (Odd Semester 2026-27)** program.
 
-For **Week 1**, we built a **Student Task Manager REST API** using **Node.js** and **Express.js**. The project demonstrates the fundamentals of Backend Development and REST API concepts by implementing complete CRUD (Create, Read, Update, Delete) operations.
+For **Week 2**, the existing **Student Task Manager REST API** was enhanced by developing a **responsive and interactive frontend** using **HTML, CSS, and JavaScript**. The project now provides a user-friendly interface for managing student tasks while continuing to use the backend REST API developed in Week 1.
 
-The API allows users to manage student tasks such as assignments, projects, and deadlines.
+The application allows users to create, view, update, delete, and manage tasks directly through a modern web interface.
 
 ---
 
 # 🎯 Objective
 
-- Learn Backend Development fundamentals.
-- Understand REST API architecture.
-- Learn HTTP methods.
-- Build a simple CRUD application.
-- Test APIs using Postman.
+- Build a responsive frontend for the existing REST API.
+- Improve user experience with an intuitive interface.
+- Integrate frontend and backend seamlessly.
+- Learn DOM manipulation and asynchronous API calls.
+- Enhance the project with better usability and design.
 
 ---
 
@@ -26,10 +26,12 @@ The API allows users to manage student tasks such as assignments, projects, and 
 
 - Node.js
 - Express.js
-- JavaScript
+- HTML5
+- CSS3
+- JavaScript (ES6)
 - REST API
 - JSON
-- Postman
+- Fetch API
 - Git & GitHub
 
 ---
@@ -38,6 +40,13 @@ The API allows users to manage student tasks such as assignments, projects, and 
 
 ```
 Student-Task-Manager-REST-API
+│
+├── public
+│   ├── css
+│   │   └── style.css
+│   ├── js
+│   │   └── app.js
+│   └── index.html
 │
 ├── app.js
 ├── tasks.js
@@ -50,13 +59,16 @@ Student-Task-Manager-REST-API
 
 # ✨ Features
 
+- Responsive UI for Desktop, Tablet, and Mobile devices
 - View all student tasks
-- View a task using its ID
-- Add a new task
-- Update an existing task
-- Delete a task
-- JSON-based API responses
-- Tested using Postman
+- Add new tasks
+- Edit existing tasks
+- Delete tasks
+- Mark tasks as completed
+- Dynamic task rendering
+- Real-time interaction with REST APIs
+- Clean and modern user interface
+- Improved user experience
 
 ---
 
@@ -135,9 +147,25 @@ DELETE /tasks/1
 
 ---
 
+# 🎨 UI Improvements
+
+- Responsive layout using modern CSS
+- Improved spacing and typography
+- Interactive forms
+- Better button styling
+- Mobile-friendly design
+- Dynamic task cards
+- Smooth user interactions
+- Organized interface for better accessibility
+
+---
+
 # 📬 Testing
 
-All API endpoints were tested successfully using **Postman**.
+- Tested all REST API endpoints successfully.
+- Verified frontend-backend integration.
+- Tested CRUD operations through the web interface.
+- Checked responsiveness across different screen sizes.
 
 ---
 
@@ -161,7 +189,7 @@ or
 npm run dev
 ```
 
-The server runs on:
+Open your browser and visit:
 
 ```
 http://localhost:3000
@@ -169,45 +197,51 @@ http://localhost:3000
 
 ---
 
-# 📖 Concepts Learned in Week 1
+# 📖 Concepts Learned in Week 2
 
-- Introduction to Backend Development
-- Node.js Basics
-- Express.js Framework
-- REST API Fundamentals
-- HTTP Methods (GET, POST, PUT, DELETE)
-- CRUD Operations
-- JSON Data Handling
-- API Testing using Postman
-- Git & GitHub Basics
+- Frontend Development Basics
+- Responsive Web Design
+- HTML5 & CSS3
+- JavaScript DOM Manipulation
+- Fetch API
+- API Integration
+- Event Handling
+- Responsive Layout Design
+- Client-Server Communication
+- Full Stack Integration
 
 ---
 
 # 🔮 Future Improvements
 
-- Connect MongoDB Database
-- User Authentication
+- MongoDB Database Integration
+- User Authentication & Authorization
 - JWT Security
-- Input Validation
-- React Frontend
 - Search and Filter Tasks
-- User Login System
+- Task Categories
+- Priority Levels
+- Due Date Notifications
+- Dark Mode
+- Drag & Drop Task Management
+- Cloud Deployment
 
 ---
 
-# 📌 Week 1 Summary
+# 📌 Week 2 Summary
 
-✅ Set up a Node.js project
+✅ Designed and developed a responsive frontend
 
-✅ Installed and configured Express.js
+✅ Integrated frontend with the Week 1 REST API
 
-✅ Created a REST API server
+✅ Implemented task management through the UI
 
-✅ Implemented complete CRUD operations
+✅ Enhanced user experience with a clean interface
 
-✅ Tested APIs using Postman
+✅ Tested complete CRUD functionality
 
-✅ Uploaded the project to GitHub
+✅ Optimized the application for different screen sizes
+
+✅ Uploaded the updated project to GitHub
 
 ---
 
